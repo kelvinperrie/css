@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>sadf</title>
+    <style>
+        html {
+            font-family: Tahoma ;
+        }
+        .container {
+            display: flex;
+            background-color: rgb(201, 201, 201);
+            border-radius: 10px;
+            border: 2px solid gray;
+            width: 600px;
+            margin: 10px 0;
+        }
+        .flex-item {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(255 63 63);
+            margin: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    Flexbox with items aligned individually
+    <style>
+        #container1 #one {
+            align-self: flex-start;
+        }
+        #container1 #two {
+            align-self: center;
+        }
+        #container1 #three {
+            align-self: flex-end;
+        }
+        #container1 #four {
+            align-self: stretch;
+        }
+        #container1 .flex-item {
+            height: auto;
+        }
+    </style>
+    
+    <div id="container1" class="container">
+        <div class="flex-item" id="one">1 align-self: flex-start</div>
+        <div class="flex-item" id="two">2 center</div>
+        <div class="flex-item" id="three">3 flex-end</div>
+        <div class="flex-item" id="four">4 stretch; won't work if items have a specified height</div>
+    </div>
+
+
+
+    Flexbox with alignment on container<br/>
+    justify-content: flex-start;
+    <style>
+        #container2 {
+            justify-content: flex-start;
+        }
+    </style>
+    <div id="container2" class="container">
+        <div class="flex-item" id="one">1</div>
+        <div class="flex-item" id="two">2</div>
+        <div class="flex-item" id="three">3</div>
+        <div class="flex-item" id="four">4</div>
+    </div>
+    justify-content: flex-end;
+    <style>
+        #container3 {
+            justify-content: flex-end;
+        }
+    </style>
+    <div id="container3" class="container">
+        <div class="flex-item" id="one">1</div>
+        <div class="flex-item" id="two">2</div>
+        <div class="flex-item" id="three">3</div>
+        <div class="flex-item" id="four">4</div>
+    </div>
+    justify-content: center;
+    <style>
+        #container4 {
+            justify-content: center;
+        }
+    </style>
+    <div id="container4" class="container">
+        <div class="flex-item" id="one">1</div>
+        <div class="flex-item" id="two">2</div>
+        <div class="flex-item" id="three">3</div>
+        <div class="flex-item" id="four">4</div>
+    </div>
+    justify-content: space-between;
+    <style>
+        #container5 {
+            justify-content: space-between;
+        }
+    </style>
+    <div id="container5" class="container">
+        <div class="flex-item" id="one">1</div>
+        <div class="flex-item" id="two">2</div>
+        <div class="flex-item" id="three">3</div>
+        <div class="flex-item" id="four">4</div>
+    </div>
+    justify-content: space-around;
+    <style>
+        #container6 {
+            justify-content: space-around;
+        }
+    </style>
+    <div id="container6" class="container">
+        <div class="flex-item" id="one">1</div>
+        <div class="flex-item" id="two">2</div>
+        <div class="flex-item" id="three">3</div>
+        <div class="flex-item" id="four">4</div>
+    </div>
+
+    what if the items have no set widths and heights and we let the content dictate. madness. They flex around to proportionately have width based on content
+    <style>
+        #container7 {
+            justify-content: space-around;
+        }
+        #container7 .flex-item {
+            height: auto;
+            width: auto;
+        }
+    </style>
+    <div id="container7" class="container">
+        <div class="flex-item" id="one">1 here is some stuff in the thing. this one is going to be fat as.</div>
+        <div class="flex-item" id="two">2 woooo. smallish, kind of cool i reckon.</div>
+        <div class="flex-item" id="three">3 how about that then</div>
+        <div class="flex-item" id="four">4</div>
+    </div>
+
+    lets make these things wrap; based on their content they just do whatever they feel like if no width specified
+    <style>
+        #container8 {
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        #container8 .flex-item {
+            height: auto;
+            width: auto;
+        }
+    </style>
+    <div id="container8" class="container">
+        <div class="flex-item" id="one">1 here is some stuff in the thing. this one is going to be fat as.</div>
+        <div class="flex-item" id="two">2 woooo. smallish, kind of cool i reckon.</div>
+        <div class="flex-item" id="three">3 how about that then</div>
+        <div class="flex-item" id="four">4</div>
+    </div>
+
+    wrap it plus give flex items a width. This one is cool because each line will be the height of the biggest item.
+    </br>
+    centering gets a bit weird if different amounts of items on each line - e.g. items won't line up if 4 on line one and 3 on line 2
+    <style>
+        #container9 {
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            height: auto;
+        }
+        #container9 .flex-item {
+            height: auto;
+            width: 200px;
+        }
+    </style>
+    <div id="container9" class="container">
+        <div class="flex-item" id="one">1 here is some stuff in the thing. this one is going to be fat as.</div>
+        <div class="flex-item" id="two">2 woooo. smallish, kind of cool i reckon.</div>
+        <div class="flex-item" id="three">3 how about that then</div>
+        <div class="flex-item" id="four">4 this one also has some contents. why do they seem to have a min height? something is weird</div>
+        <div class="flex-item" id="five">5</div>
+        <div class="flex-item" id="six">6</div>
+        <div class="flex-item" id="seven">7</div>
+    </div>
+
+
+
+</body>
+</html>

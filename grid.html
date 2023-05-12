@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>sadf</title>
+    <style>
+        html {
+            font-family: Tahoma ;
+        }
+    </style>
+</head>
+<body>
+    Here's a grid where we template some areas, then force the items into each area. It's weird.
+    <style>
+        #grid1 {
+            display: grid;
+            background-color: rgb(204, 204, 204);
+            grid-template-areas: 
+                "header header header header"
+                "main main . sidebar"
+                "footer footer footer footer";
+        }
+        .grid-item {
+            background-color: rgb(187, 84, 84);
+            border-radius: 10px;
+            opacity: 0.7;
+            margin: 10px;
+        }
+        .item-a {
+            grid-area: header;
+        }
+        .item-b {
+        grid-area: main;
+        }
+        .item-c {
+        grid-area: sidebar;
+        }
+        .item-d {
+            grid-area: footer;
+        }
+    </style>
+    
+    <div id="grid1">
+        <div class="grid-item item-a">1</div>
+        <div class="grid-item item-b">2</div>
+        <div class="grid-item item-c">3</div>
+        <div class="grid-item item-d">5</div>
+    </div>
+
+    Now we're going to make a grid and some items and just slot them in all over the place like an absolute madman
+    <br/>
+    <style>
+        #grid2 {
+            display: inline-grid;
+            background-color: rgb(204, 204, 204);
+            grid-template-columns: repeat(6, 50px [col-start]);
+            grid-template-rows: repeat(6, 50px [row-start]);
+        }
+        .item-e {
+            grid-column: 3 / span 4;
+            grid-row: 3 / 4;
+        }
+        .item-f {
+            grid-column: 5;
+            grid-row: 1 / 5;
+        }
+        .item-g {
+            grid-column: 1 / span 3;
+            grid-row: 4 / span 2;
+        }
+        .item-h {
+            grid-column: 3 / span 3;
+            grid-row: 5 / span 2;
+        }
+    </style>
+    
+    <div id="grid2">
+        <div class="grid-item item-e">1</div>
+        <div class="grid-item item-f">2</div>
+        <div class="grid-item item-g">3</div>
+        <div class="grid-item item-h">4</div>
+    </div>
+<br/>
+    when your items are smaller than your grid you can align them within the grid cells.
+    <br/>
+    <style>
+        #grid3 {
+            display: grid;
+            background-color: rgb(204, 204, 204);
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+        }
+        .item-i {
+            grid-column: 1;
+            grid-row: 1;
+            justify-self: start;
+        }
+        .item-j {
+            grid-column: 1;
+            grid-row: 2;
+            justify-self: center;
+        }
+        .item-k {
+            grid-column: 1;
+            grid-row: 3;
+            justify-self: end;
+        }
+        .item-l {
+            grid-column: 1;
+            grid-row: 4;
+            justify-self: stretch;
+        }
+    </style>
+    
+    <div id="grid3">
+        <div class="grid-item item-i">1 hello there</div>
+        <div class="grid-item item-j">2 hello there</div>
+        <div class="grid-item item-k">3 hello there</div>
+        <div class="grid-item item-l">4 hello there</div>
+    </div>
+
+    changing the gap size between the cols and rows
+    <br/>
+    <style>
+        #grid4 {
+            display: grid;
+            background-color: rgb(204, 204, 204);
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            column-gap: 15px;
+            row-gap: 15px;
+        }
+        .item-m {
+            justify-self: stretch;
+        }
+        #grid4 .grid-item {
+            margin: 0;
+            padding: 5px;
+        }
+    </style>
+    
+    <div id="grid4">
+        <div class="grid-item item-m">1 hello there</div>
+        <div class="grid-item item-m">1 hello there</div>
+        <div class="grid-item item-m">1 hello there</div>
+        <div class="grid-item item-m">1 hello there</div>
+        <div class="grid-item item-m">1 hello there</div>
+        <div class="grid-item item-m">1 hello there</div>
+        <div class="grid-item item-m">1 hello there</div>
+        <div class="grid-item item-m">1 hello there</div>
+        <div class="grid-item item-m">1 hello there</div>
+    </div>
+
+</body>
+</html>
